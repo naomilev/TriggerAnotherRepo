@@ -1,21 +1,6 @@
 name: Trigger another repo
 on:
   workflow_dispatch:
-     inputs:
-      prworkflow:
-        description: 'ًPR Workflow will be triggered'
-        required: true
-        default: 'prworkflow'
-
-      prworkflow_github_account:
-        description: 'GitHub Account Owner'
-        required: true
-        default: 'naomilev'
-
-      prworkflow_repo_github:
-        description: 'repo-name'
-        required: true
-        default: 'PRWorkflow' 
 
 jobs:
   build:
@@ -28,4 +13,4 @@ jobs:
           curl -X POST https://api.github.com/repos/naomilev/PRWorkflow/dispatches \
           -H 'Accept: application/vnd.github.everest-preview+json' \
           -u ${{ secrets.ACTIONS_KEY }} \
-          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "'"$GITHUB_REPOSITORY"'" }}'
+          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "naomilev/PRWorkflow" }}'
