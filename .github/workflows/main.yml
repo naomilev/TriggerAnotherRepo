@@ -10,12 +10,12 @@ on:
       prworkflow_github_account:
         description: 'GitHub Account Owner'
         required: true
-        default: ':naomilev'
+        default: 'naomilev'
 
       prworkflow_repo_github:
         description: 'repo-name'
         required: true
-        default: ':PRWorkflow' 
+        default: 'PRWorkflow' 
 
 jobs:
   build:
