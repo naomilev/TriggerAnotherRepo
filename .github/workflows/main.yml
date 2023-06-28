@@ -10,7 +10,7 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - name: Test
         run: |
-          curl -X POST https://api.github.com/repos/naomilev/PRWorkflow/dispatches \
-          -H 'Accept: application/vnd.github.everest-preview+json' \
-          -u ${{ secrets.ACTIONS_KEY }} \
-          --data '{"event_type": "Trigger Workflow", "client_payload": { "repository": "naomilev/PRWorkflow" }}'
+              curl -X POST https://api.github.com/repos/naomilev/PRWorkflow/actions/workflows/main.yml/dispatches \
+              -H 'Accept: application/vnd.github.v3+json' \
+              --header 'Authorization: Bearer ${{ secrets.ACTIONS_KEY }}' \
+              --data '{"ref": "${{ github.ref }}"}'
